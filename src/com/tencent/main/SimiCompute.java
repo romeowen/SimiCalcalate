@@ -9,8 +9,8 @@ public class SimiCompute {
 	int topN = 0;
 	
 	public SimiCompute(String dimension_1, String dimension_2, int topN) {
-		this.dimension_1 = dimension_1;
-		this.dimension_2 = dimension_2;		
+		this.dimension_1 = dimension_1.trim();
+		this.dimension_2 = dimension_2.trim();		
 		this.topN = topN;
 	}
 	
@@ -38,15 +38,19 @@ public class SimiCompute {
 		int cut_num = item_1_list.length > this.topN ? this.topN : item_1_list.length;		
 		for (int i =0; i< cut_num; i++) {
 			String [] item = item_1_list[i].split(":", -1);
-			item_1_id.add(item[0]);
-			item_1_weight.add(Double.parseDouble(item[1]));			
+			if (item.length == 2) {
+				item_1_id.add(item[0]);
+				item_1_weight.add(Double.parseDouble(item[1]));						
+			}	
 		}
 		
 		cut_num = item_2_list.length > this.topN ? this.topN : item_2_list.length;
 		for (int i =0; i< cut_num; i++) {
 			String [] item = item_2_list[i].split(":", -1);
-			item_2_id.add(item[0]);
-			item_2_weight.add(Double.parseDouble(item[1]));			
+			if(item.length == 2) {
+				item_2_id.add(item[0]);
+				item_2_weight.add(Double.parseDouble(item[1]));						
+			}
 		}
 		
 		item_1_weight = normalization(item_1_weight);

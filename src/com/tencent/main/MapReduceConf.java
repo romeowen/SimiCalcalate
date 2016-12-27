@@ -20,8 +20,10 @@ public class MapReduceConf {
 		for(String arg: args) {
 			this.args.add(arg);
 		}
-		conf.set("topN", args[args.length-2]);
-		conf.set("array_len", args[args.length-1]);
+		conf.set("topN", args[args.length-4]);
+		conf.set("array_len", args[args.length-3]);
+		conf.set("label_index", args[args.length-2]);
+		conf.set("second_sample_ratio", args[args.length-1]);
 	}	
 
 	
