@@ -5,4 +5,6 @@ example:
 hadoop jar com.tencent.main.SimiCalculate input output cut_top expect_length
 
 
-edited in 201612303
+edited in 201612331649
+
+
